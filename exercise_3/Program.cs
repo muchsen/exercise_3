@@ -80,6 +80,7 @@ namespace Exercise_linked_list_A
                     Console.WriteLine("4. Exit");
                     Console.Write("\nEnter your choice (1-4): ");
                     char ch = Convert.ToChar(Console.ReadLine());
+                    switch (ch)
 
                 }
             }
