@@ -81,6 +81,13 @@ namespace Exercise_linked_list_A
                     Console.Write("\nEnter your choice (1-4): ");
                     char ch = Convert.ToChar(Console.ReadLine());
                     switch (ch)
+                    {
+                        case '1':
+                            {
+                                obj.traverse();
+                            }
+                            break;
+                    }
 
                 }
             }
