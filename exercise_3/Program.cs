@@ -1,8 +1,9 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading;
+using System.Threading.Tasks;
 
 namespace Exercise_linked_list_A
 {
@@ -21,7 +22,35 @@ namespace Exercise_linked_list_A
             LAST = null;
         }
 
-        public bool Search(int rollNo, ref Node previous, ref Node current)
+        public void addNode()
+        {
+            int nim;
+            string nm;
+            Console.WriteLine("\nEnter the roll number of the student");
+            nim = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("\nEnter the name of the student: ");
+            nm = Console.ReadLine();
+            Node newNode = new Node();
+            newNode.noMhs = nim;
+            newNode.name = nm;
+
+
+            if (START == null || nim <= START.noMhs)
+            {
+                if ((START != null) && (nim == START.noMhs))
+                {
+                    Console.WriteLine("\nDuplicade number not allowed");
+                    return;
+                }
+                newNode.next = START;
+                if (START != null)
+                    START.prev = newNode;
+                newNode.prev = null;
+                return;
+            }
+
+
+            public bool Search(int rollNo, ref Node previous, ref Node current)
         {
             for (previous = current = LAST.next; current != LAST; previous = current, current = current.next)
             {
@@ -40,6 +69,7 @@ namespace Exercise_linked_list_A
             else
                 return false;
         }
+
 
 
         public void traverse()
@@ -74,11 +104,13 @@ namespace Exercise_linked_list_A
                 try
                 {
                     Console.WriteLine("\nMenu");
-                    Console.WriteLine("1. View all the records in the list");
-                    Console.WriteLine("2. Search for a records in the list");
-                    Console.WriteLine("3. Display the first record in the list");
-                    Console.WriteLine("4. Exit");
-                    Console.Write("\nEnter your choice (1-4): ");
+                    Console.WriteLine("1. add a record to the list");
+                    Console.WriteLine("2. delete a record from the list");
+                    Console.WriteLine("3. view all record in the ascending order of roll number");
+                    Console.WriteLine("4. view all record in the descending order of roll number");
+                    Console.WriteLine("5. search for a record in the list");
+                    Console.WriteLine("6. exit\n");
+                    Console.Write("\nEnter your choice (1-6): ");
                     char ch = Convert.ToChar(Console.ReadLine());
                     switch (ch)
                     {
@@ -87,6 +119,12 @@ namespace Exercise_linked_list_A
                                 obj.traverse();
                             }
                             break;
+                        case '2':
+                            {
+                                Console.WriteLine("\nList is empty");
+                                break;
+                            }
+
                     }
 
                 }
